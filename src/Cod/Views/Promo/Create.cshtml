@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Cod.Models.Promo
+
+
+<h2>Create New Promo For The Website:</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Special)
+    @Html.EditorFor(model => model.Special)
+
+    @Html.LabelFor(model => model.FishOfDay)
+    @Html.EditorFor(model => model.FishOfDay)
+
+    @Html.LabelFor(model => model.ImageUrl)
+    @Html.EditorFor(model => model.ImageUrl)
+
+    @Html.LabelFor(model => model.OurStory)
+    @Html.EditorFor(model => model.OurStory)
+
+    @Html.LabelFor(model => model.Hours)
+    @Html.EditorFor(model => model.Hours)
+
+
+    <input type="submit" value="Create" />
+
+}
+
+@Html.ActionLink("Home", "Index", "Account")

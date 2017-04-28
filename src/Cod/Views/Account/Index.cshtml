@@ -1,20 +1,51 @@
-﻿@{
+﻿@model IEnumerable<Cod.Models.Promo>
+
+@{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Authentication with Identity</h2>
+<h2>Cod Spot</h2>
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
     <p>Hello @User.Identity.Name!</p>
-    @using (Html.BeginForm("LogOff", "Account"))
+
+    <p> @Html.ActionLink("Create New Promo", "Create", "Promo")</p>
+    <p> @Html.ActionLink("Edit Promo", "Edit", "Promo")</p>
+
+
+        @using(Html.BeginForm("LogOff", "Account"))
     {
         <input type="submit" class="btn btn-default" value="Log out" />
     }
 }
 else
 {
+    <h4> Welcome to the Cod Spot! </h4>
+
+    <h3>Fish of the day:</h3>
+    @Html.DisplayNameFor(Model => Model.FishOfDay)
+    <br />
+
+    <h3>Special:</h3>
+    @Html.DisplayNameFor(Model => Model.Special)
+    <br />
+
+    <h3>Images:</h3>
+    @Html.DisplayNameFor(Model => Model.ImageUrl)
+    <br />
+
+    <h3>Our Story:</h3>
+    @Html.DisplayNameFor(Model => Model.OurStory)
+    <br />
+
+    <h3>Hours:</h3>
+    @Html.DisplayNameFor(Model => Model.Hours)
+    <br />
+
+
+
     <p>@Html.ActionLink("Register", "Register")</p>
     <p>@Html.ActionLink("Log in", "Login")</p>
 }
