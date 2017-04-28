@@ -63,6 +63,51 @@ namespace Cod.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Newsletters",
+                columns: table => new
+                {
+                    NewsletterId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    Email = table.Column<string>(nullable: true),
+                    FavoriteFish = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Newsletters", x => x.NewsletterId);
+                    table.ForeignKey(
+                        name: "FK_Newsletters_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Promos",
+                columns: table => new
+                {
+                    PromoId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    FishOfDay = table.Column<string>(nullable: true),
+                    Hours = table.Column<string>(nullable: true),
+                    ImageUrl = table.Column<string>(nullable: true),
+                    OurStory = table.Column<string>(nullable: true),
+                    Special = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Promos", x => x.PromoId);
+                    table.ForeignKey(
+                        name: "FK_Promos_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetUserClaims",
                 columns: table => new
                 {
@@ -160,6 +205,16 @@ namespace Cod.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Newsletters_UserId",
+                table: "Newsletters",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Promos_UserId",
+                table: "Promos",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
                 table: "AspNetRoles",
                 column: "NormalizedName");
@@ -192,6 +247,12 @@ namespace Cod.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Newsletters");
+
+            migrationBuilder.DropTable(
+                name: "Promos");
+
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 

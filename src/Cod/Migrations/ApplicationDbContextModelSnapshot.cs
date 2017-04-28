@@ -65,6 +65,48 @@ namespace Cod.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Cod.Models.Newsletter", b =>
+                {
+                    b.Property<int>("NewsletterId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FavoriteFish");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("NewsletterId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Newsletters");
+                });
+
+            modelBuilder.Entity("Cod.Models.Promo", b =>
+                {
+                    b.Property<int>("PromoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("FishOfDay");
+
+                    b.Property<string>("Hours");
+
+                    b.Property<string>("ImageUrl");
+
+                    b.Property<string>("OurStory");
+
+                    b.Property<string>("Special");
+
+                    b.Property<string>("UserId");
+
+                    b.HasKey("PromoId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Promos");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRole", b =>
                 {
                     b.Property<string>("Id");
@@ -170,6 +212,20 @@ namespace Cod.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("Cod.Models.Newsletter", b =>
+                {
+                    b.HasOne("Cod.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Cod.Models.Promo", b =>
+                {
+                    b.HasOne("Cod.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityRoleClaim<string>", b =>
