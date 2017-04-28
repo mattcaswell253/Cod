@@ -209,4 +209,5 @@ C:\Users\Green\Desktop\Cod\src\Cod\Migrations\20170428161938_Initial.Designer.cs
 C:\Users\Green\Desktop\Cod\src\Cod\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\Green\Desktop\Cod\src\Cod\Models\ApplicationDbContext.cs
 C:\Users\Green\Desktop\Cod\src\Cod\Models\ApplicationUser.cs
+C:\Users\Green\Desktop\Cod\src\Cod\ViewModels\LoginViewModel.cs
 C:\Users\Green\Desktop\Cod\src\Cod\ViewModels\RegisterViewModel.cs
