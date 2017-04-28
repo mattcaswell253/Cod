@@ -11,6 +11,38 @@
 {
     <p>Hello @User.Identity.Name!</p>
 
+    <h4> Welcome to the Cod Spot! </h4>
+    @foreach (var listPromo in Model)
+    {
+        <div>
+            <h3>Fish of the day:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.FishOfDay)
+            <br />
+
+            <h3>Special:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.Special)
+            <br />
+
+            <h3>Images:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.ImageUrl)
+            <br />
+
+            <h3>Our Story:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.OurStory)
+            <br />
+
+            <h3>Hours:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.Hours)
+            <br />
+        </div>
+    }
+
+
+
+
+    <p>@Html.ActionLink("Register", "Register")</p>
+    <p>@Html.ActionLink("Log in", "Login")</p>
+
     <p> @Html.ActionLink("Create New Promo", "Create", "Promo")</p>
     <p> @Html.ActionLink("Edit Promo", "Edit", "Promo")</p>
 
@@ -23,27 +55,30 @@
 else
 {
     <h4> Welcome to the Cod Spot! </h4>
+    @foreach (var listPromo in Model)
+    {
+        <div>
+            <h3>Fish of the day:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.FishOfDay)
+            <br />
 
-    <h3>Fish of the day:</h3>
-    @Html.DisplayNameFor(Model => Model.FishOfDay)
-    <br />
+            <h3>Special:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.Special)
+            <br />
 
-    <h3>Special:</h3>
-    @Html.DisplayNameFor(Model => Model.Special)
-    <br />
+            <h3>Images:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.ImageUrl)
+            <br />
 
-    <h3>Images:</h3>
-    @Html.DisplayNameFor(Model => Model.ImageUrl)
-    <br />
+            <h3>Our Story:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.OurStory)
+            <br />
 
-    <h3>Our Story:</h3>
-    @Html.DisplayNameFor(Model => Model.OurStory)
-    <br />
-
-    <h3>Hours:</h3>
-    @Html.DisplayNameFor(Model => Model.Hours)
-    <br />
-
+            <h3>Hours:</h3>
+            @Html.DisplayFor(modelPromo => listPromo.Hours)
+            <br />
+        </div>
+    }
 
 
     <p>@Html.ActionLink("Register", "Register")</p>
