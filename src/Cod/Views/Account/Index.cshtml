@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Cod.Models.Promo>
+﻿@model Cod.Models.Promo
 
 @{
     ViewData["Title"] = "Index";
@@ -12,30 +12,31 @@
     <p>Hello @User.Identity.Name!</p>
 
     <h4> Welcome to the Cod Spot! </h4>
-    @foreach (var listPromo in Model)
-    {
+   
+    
         <div>
             <h3>Fish of the day:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.FishOfDay)
+            
+            @Html.DisplayFor(model => model.FishOfDay)
             <br />
 
             <h3>Special:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.Special)
+            @Html.DisplayFor(model => model.Special)
             <br />
 
             <h3>Images:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.ImageUrl)
+            @Html.DisplayFor(model => model.ImageUrl)
             <br />
 
             <h3>Our Story:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.OurStory)
+            @Html.DisplayFor(model => model.OurStory)
             <br />
 
             <h3>Hours:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.Hours)
+            @Html.DisplayFor(model => model.Hours)
             <br />
         </div>
-    }
+    
 
 
 
@@ -55,29 +56,31 @@
 else
 {
     <h4> Welcome to the Cod Spot! </h4>
-    @foreach (var listPromo in Model)
-    {
-        <div>
-            <h3>Fish of the day:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.FishOfDay)
-            <br />
+    
+    
+        
+            <div>
+                <h3>Fish of the day:</h3>
+                @Html.DisplayFor(model => model.FishOfDay)
+                <br />
 
-            <h3>Special:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.Special)
-            <br />
+                <h3>Special:</h3>
+                @Html.DisplayFor(model => model.Special)
+                <br />
 
-            <h3>Images:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.ImageUrl)
-            <br />
+                <h3>Images:</h3>
+                @Html.DisplayFor(model => model.ImageUrl)
+                <br />
 
-            <h3>Our Story:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.OurStory)
-            <br />
+                <h3>Our Story:</h3>
+                @Html.DisplayFor(model => model.OurStory)
+                <br />
 
-            <h3>Hours:</h3>
-            @Html.DisplayFor(modelPromo => listPromo.Hours)
-            <br />
-        </div>
+                <h3>Hours:</h3>
+                @Html.DisplayFor(model => model.Hours)
+                <br />
+            </div>
+      
     }
 
 
