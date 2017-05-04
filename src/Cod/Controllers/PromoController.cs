@@ -12,7 +12,6 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Cod.Controllers
 {
-    [Authorize]
     public class PromoController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -28,6 +27,11 @@ namespace Cod.Controllers
            
             return View(_db.Promos.ToList());
         }
+        public IActionResult Details(int id)
+        {
+            var thisPromo = _db.Promos.FirstOrDefault(promo => promo.PromoId == id);
+            return View(thisPromo);
+        }
         public IActionResult Create()
         {
             return View();
@@ -40,7 +44,7 @@ namespace Cod.Controllers
             promo.User = currentUser;
             _db.Promos.Add(promo);
             _db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Account");
         }
 
       

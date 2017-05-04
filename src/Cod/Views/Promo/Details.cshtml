@@ -1,0 +1,89 @@
+﻿@model Cod.Models.Promo
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cod Spot</h2>
+<hr />
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Hello @User.Identity.Name!</p>
+
+    <h4> Welcome to the Cod Spot! </h4>
+
+
+    <div>
+        <h3>Fish of the day:</h3>
+        @Html.LabelFor(model => model.FishOfDay)
+        @Html.DisplayFor(model => model.FishOfDay)
+        <br />
+
+        <h3>Special:</h3>
+        @Html.DisplayFor(model => model.Special)
+        <br />
+
+        <h3>Images:</h3>
+        @Html.DisplayFor(model => model.ImageUrl)
+        <br />
+
+        <h3>Our Story:</h3>
+        @Html.DisplayFor(model => model.OurStory)
+        <br />
+
+        <h3>Hours:</h3>
+        @Html.DisplayFor(model => model.Hours)
+        <br />
+    </div>
+
+
+
+
+
+        <p>@Html.ActionLink("Register", "Register")</p>
+        <p>@Html.ActionLink("Log in", "Login")</p>
+
+        <p> @Html.ActionLink("Create New Promo", "Create", "Promo")</p>
+        <p> @Html.ActionLink("Edit Promo", "Edit", "Promo")</p>
+
+
+        @using (Html.BeginForm("LogOff", "Account"))
+        {
+            <input type="submit" class="btn btn-default" value="Log out" />
+        }
+}
+else
+{
+    <h4> Welcome to the Cod Spot! </h4>
+
+
+
+    <div>
+        <h3>Fish of the day:</h3>
+        @Html.DisplayFor(model => model.FishOfDay)
+        <br />
+
+        <h3>Special:</h3>
+        @Html.DisplayFor(model => model.Special)
+        <br />
+
+        <h3>Images:</h3>
+        @Html.DisplayFor(model => model.ImageUrl)
+        <br />
+
+        <h3>Our Story:</h3>
+        @Html.DisplayFor(model => model.OurStory)
+        <br />
+
+        <h3>Hours:</h3>
+        @Html.DisplayFor(model => model.Hours)
+        <br />
+    </div>
+
+}
+
+
+<p>@Html.ActionLink("Register", "Register")</p>
+<p>@Html.ActionLink("Log in", "Login")</p>
+}

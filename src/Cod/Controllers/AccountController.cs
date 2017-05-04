@@ -23,7 +23,7 @@ namespace Cod.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            return View(_db.Promos.ToList());
         }
 
         public IActionResult Register()

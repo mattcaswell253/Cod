@@ -1,4 +1,4 @@
-﻿@model Cod.Models.Promo
+﻿@model IEnumerable<Cod.Models.Promo>
 
 @{
     ViewData["Title"] = "Index";
@@ -12,33 +12,14 @@
     <p>Hello @User.Identity.Name!</p>
 
     <h4> Welcome to the Cod Spot! </h4>
-   
-    
+
+    @foreach (var promo in Model)
+    {
         <div>
-            <h3>Fish of the day:</h3>
-            
-            @Html.DisplayFor(model => model.FishOfDay)
-            <br />
-
-            <h3>Special:</h3>
-            @Html.DisplayFor(model => model.Special)
-            <br />
-
-            <h3>Images:</h3>
-            @Html.DisplayFor(model => model.ImageUrl)
-            <br />
-
-            <h3>Our Story:</h3>
-            @Html.DisplayFor(model => model.OurStory)
-            <br />
-
-            <h3>Hours:</h3>
-            @Html.DisplayFor(model => model.Hours)
-            <br />
+            @Html.ActionLink("Our Promo", "Details", "Promo", new { id = promo.PromoId })
+           
         </div>
-    
-
-
+    }
 
 
     <p>@Html.ActionLink("Register", "Register")</p>
@@ -55,33 +36,9 @@
 }
 else
 {
-    <h4> Welcome to the Cod Spot! </h4>
-    
-    
-        
-            <div>
-                <h3>Fish of the day:</h3>
-                @Html.DisplayFor(model => model.FishOfDay)
-                <br />
-
-                <h3>Special:</h3>
-                @Html.DisplayFor(model => model.Special)
-                <br />
-
-                <h3>Images:</h3>
-                @Html.DisplayFor(model => model.ImageUrl)
-                <br />
-
-                <h3>Our Story:</h3>
-                @Html.DisplayFor(model => model.OurStory)
-                <br />
-
-                <h3>Hours:</h3>
-                @Html.DisplayFor(model => model.Hours)
-                <br />
-            </div>
+   
       
-    }
+    
 
 
     <p>@Html.ActionLink("Register", "Register")</p>
